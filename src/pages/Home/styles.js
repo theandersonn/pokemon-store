@@ -26,13 +26,20 @@ export const ThemeCardItem = styled.article`
   width: 100%;
   padding: 15px;
 
-  background: linear-gradient(
-    135deg,
-    #d8e9f3 0%,
-    #d8e9f3 50%,
-    #457ab1 51%,
-    #457ab1 100%
-  );
+  background: ${(props) =>
+    props.watter
+      ? 'linear-gradient(135deg, #d8e9f3 0%, #d8e9f3 50%, #457ab1 50%,#457ab1 100%)'
+      : ''};
+
+  background: ${(props) =>
+    props.fire
+      ? 'linear-gradient(135deg, #FB5023 0%, #FB5023 50%, #FEA31D 50%,#FEA31D 100%)'
+      : ''};
+
+  background: ${(props) =>
+    props.dragon
+      ? 'linear-gradient(135deg, #2C5437 0%, #2C5437 50%, #A5A891 50%,#A5A891 100%)'
+      : ''};
 
   & + article {
     margin-left: 16px;

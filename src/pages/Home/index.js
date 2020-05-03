@@ -14,17 +14,17 @@ const Home = () => {
         <img src={logoImg} alt="Pokemon Store" />
 
         <ThemeCard>
-          <ThemeCardItem>
+          <ThemeCardItem watter>
             <img src={aguaPoliwhirl} alt="Poliwhirl" />
             <button>Pokemon do tipo água</button>
           </ThemeCardItem>
 
-          <ThemeCardItem>
+          <ThemeCardItem fire>
             <img src={fogoGrowlithe} alt="Growlithe" />
             <button>Pokemon do tipo fogo</button>
           </ThemeCardItem>
 
-          <ThemeCardItem>
+          <ThemeCardItem dragon>
             <img src={dragaoDeino} alt="Deino" />
             <button>Pokemon do tipo dragão</button>
           </ThemeCardItem>
