@@ -7,6 +7,8 @@ import dragaoDeino from '../../assets/dragao-Deino.png';
 
 import { Wrapper, ThemeCard, ThemeCardItem } from './styles';
 
+import Button from '../../components/Button';
+
 const Home = () => {
   return (
     <Wrapper>
@@ -16,17 +18,17 @@ const Home = () => {
         <ThemeCard>
           <ThemeCardItem watter>
             <img src={aguaPoliwhirl} alt="Poliwhirl" />
-            <button>Pokemon do tipo água</button>
+            <Button />
           </ThemeCardItem>
 
           <ThemeCardItem fire>
             <img src={fogoGrowlithe} alt="Growlithe" />
-            <button>Pokemon do tipo fogo</button>
+            <Button />
           </ThemeCardItem>
 
           <ThemeCardItem dragon>
             <img src={dragaoDeino} alt="Deino" />
-            <button>Pokemon do tipo dragão</button>
+            <Button />
           </ThemeCardItem>
         </ThemeCard>
       </div>

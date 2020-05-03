@@ -44,15 +44,4 @@ export const ThemeCardItem = styled.article`
   & + article {
     margin-left: 16px;
   }
-
-  button {
-    max-width: 270px;
-    width: 100%;
-    line-height: 40px;
-    background-color: #000;
-    color: #fff;
-    border: none;
-    text-transform: uppercase;
-    font-weight: 700;
-  }
 `;

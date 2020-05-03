@@ -25,8 +25,17 @@ export default createGlobalStyle`
     cursor: pointer;
   }
 
+  img {
+    border: 0;
+  }
+
+  ul {
+    padding-left: 0;
+    list-style: none;
+  }
+
   #root {
-    max-width: 960px;
+    max-width: 1170px;
     margin: 0 auto;
   }
 `;
