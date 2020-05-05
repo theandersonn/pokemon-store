@@ -1,6 +1,6 @@
 ## Pokémon Store
 
-A Pokémon Store é um catalogo que lista pokémon a partir da [PokéAPI](https://pokeapi.co/), contém variação de 03 temas e busca com o recurso de montagem de Pokédex.
+A Pokémon Store é uma aplicação feita com ReactJS, sendo um catalogo com listagem de Pokémon a partir da [PokéAPI](https://pokeapi.co/), contém variação de 03 temas e busca com filtro por nome e recurso de montagem de Pokédex.
 
 <img alt="GoStack" src="https://raw.githubusercontent.com/theandersonn/pokemon-store/master/src/assets/pokemon-store-scene.png" />
 <br><br>
