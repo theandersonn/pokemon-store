@@ -9,8 +9,6 @@ import dragaoDeino from '../../assets/dragao-Deino.png';
 
 import { Wrapper, ThemeCard, ThemeCardItem } from './styles';
 
-import Button from '../../components/Button';
-
 const Home = () => {
   return (
     <Wrapper>

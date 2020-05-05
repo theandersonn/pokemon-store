@@ -23,7 +23,7 @@ export const CartList = styled.ul`
     }
 
     img {
-      width: 48px;
+      width: 64px;
     }
 
     span {
