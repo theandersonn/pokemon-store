@@ -2,12 +2,12 @@ import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 
 import Home from '../pages/Home';
-import Category from '../pages/Category';
+import Category from '../pages/Theme';
 
 const Routes = () => (
   <Switch>
     <Route path="/" exact component={Home} />
-    <Route path="/category/:id" component={Category} />
+    <Route path="/tema/:theme" component={Category} />
   </Switch>
 );
 

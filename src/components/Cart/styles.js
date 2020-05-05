@@ -2,20 +2,26 @@ import styled from 'styled-components';
 
 export const CartList = styled.ul`
   width: 100%;
-  margin-bottom: 32px;
+  margin-bottom: 8px;
+
+  @media (min-width: 1200px) {
+    margin-bottom: 32px;
+  }
 
   li {
     display: flex;
     align-items: center;
     justify-content: space-around;
-    padding: 16px 0;
+    padding: 8px 0;
+
+    @media (min-width: 1200px) {
+      padding: 16px 0;
+    }
 
     & + li {
       border-top: 1px solid rgba(0, 0, 0, 0.1);
     }
-  }
 
-  li {
     img {
       width: 48px;
     }
@@ -34,7 +40,11 @@ export const CartPrice = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 32px;
+  margin-bottom: 8px;
+
+  @media (min-width: 1200px) {
+    margin-bottom: 32px;
+  }
 
   h2 {
     text-transform: uppercase;

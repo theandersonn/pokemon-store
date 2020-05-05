@@ -8,6 +8,8 @@ export const WrapperSearch = styled.div`
   max-width: 570px;
   width: 100%;
   height: 48px;
+
+  background-color: #fff;
   border: 2px solid #000;
   border-radius: 4px;
 

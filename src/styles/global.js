@@ -13,7 +13,6 @@ export default createGlobalStyle`
   }
 
   body {
-    background: #fff;
     -webkit-font-smoothing: antialiased;
   }
 
@@ -37,5 +36,6 @@ export default createGlobalStyle`
   #root {
     max-width: 1170px;
     margin: 0 auto;
+    padding: 0 15px;
   }
 `;
