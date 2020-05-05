@@ -8,6 +8,7 @@ import { Header, Content, CardItem, ThemeColor } from './styles';
 import Search from '../../components/Search';
 import Cart from '../../components/Cart/';
 import Footer from '../../components/Footer';
+import Button from '../../components/Button';
 
 import api from '../../services/api';
 
@@ -17,8 +18,8 @@ const Theme = () => {
   const themeColor = params.theme;
 
   useEffect(() => {
-    api.get('?limit=9').then((res) => {
-      setPokemon(res.data.results);
+    api.get('?limit=9').then((response) => {
+      setPokemon(response.data.results);
     });
   }, []);
 
@@ -51,7 +52,9 @@ const Theme = () => {
                 alt={poke.name}
               />
               <h1>{poke.name}</h1>
-              <p>R$ {(id = Math.floor(Math.random() * 999))}</p>
+              <Button text={`Add Carrinho`}>
+                R$ {(id = Math.floor(Math.random() * 999))}
+              </Button>
             </CardItem>
           ))}
         </div>

@@ -22,7 +22,7 @@ const Cart = () => {
         <p>R$ 99.99</p>
       </CartPrice>
 
-      <Button />
+      <Button text={`Finalizar`} />
     </>
   );
 };

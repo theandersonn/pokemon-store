@@ -13,6 +13,9 @@ export default createGlobalStyle`
   }
 
   body {
+    background: linear-gradient(135deg, #d8e9f3 0%, #d8e9f3 50%, #457ab1 50%,#457ab1 100%);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
     -webkit-font-smoothing: antialiased;
   }
 
