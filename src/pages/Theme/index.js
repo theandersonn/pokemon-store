@@ -44,7 +44,6 @@ const Theme = () => {
 
     const response = await api.get(`${search}`);
     const newItemPoke = response.data;
-    console.log(response.data);
     setPokedex([...pokedex, newItemPoke]);
     setPokemon([]);
     setSearch('');
@@ -81,9 +80,9 @@ const Theme = () => {
         <div>
           {/* Esse componente é renderizado ao carregar a página */}
           {pokemon.map((poke) => (
-            <CardItem key={poke.id}>
+            <CardItem key={poke.order}>
               <img
-                src={`https://pokeres.bastionbot.org/images/pokemon/${poke.order}.png`}
+                src={`https://pokeres.bastionbot.org/images/pokemon/${poke.id}.png`}
                 alt={poke.name}
               />
               <h1>{poke.name}</h1>
@@ -99,9 +98,9 @@ const Theme = () => {
 
           {/* Esse componente será renderizado quando a variavel pokedex for preenchida */}
           {pokedex.map((pokeItem) => (
-            <CardItem key={pokeItem.id}>
+            <CardItem key={pokeItem.order}>
               <img
-                src={`https://pokeres.bastionbot.org/images/pokemon/${pokeItem.order}.png`}
+                src={`https://pokeres.bastionbot.org/images/pokemon/${pokeItem.id}.png`}
                 alt={pokeItem.name}
               />
               <h1>{pokeItem.name}</h1>
