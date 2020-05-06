@@ -6,7 +6,6 @@ import logoImg from '../../assets/logo.svg';
 
 import { Header, Form, Content, CardItem, ThemeColor } from './styles';
 
-// import Search from '../../components/Search';
 import Cart from '../../components/Cart/';
 import Footer from '../../components/Footer';
 import Button from '../../components/Button';
@@ -22,10 +21,22 @@ const Theme = () => {
 
   // listar pokemon ao carregar a página
   useEffect(() => {
-    api.get(`?limit=9`).then((response) => {
-      setPokemon(response.data.results);
-    });
+    getUrlPoke();
   }, []);
+
+  // Faz a primeira requisição e pega as URLs
+  async function getUrlPoke() {
+    const response = await api.get(`?limit=12`);
+    response.data.results.map((responseItem) => {
+      return getPoke(responseItem.url);
+    });
+  }
+
+  // Faz segunda requisição e com o id do Poke lista os demais atributos
+  async function getPoke(pokeUrl) {
+    const allContent = await api.get(pokeUrl);
+    setPokemon((prevPoke) => [...prevPoke, allContent.data]);
+  }
 
   // Montar Pokédex
   async function handleAddPoke(event) {
@@ -69,29 +80,37 @@ const Theme = () => {
       <Content>
         <div>
           {/* Esse componente é renderizado ao carregar a página */}
-          {pokemon.map((poke, id) => (
-            <CardItem key={id}>
+          {pokemon.map((poke) => (
+            <CardItem key={poke.id}>
               <img
-                src={`https://pokeres.bastionbot.org/images/pokemon/${
-                  id + 1
-                }.png`}
+                src={`https://pokeres.bastionbot.org/images/pokemon/${poke.order}.png`}
                 alt={poke.name}
               />
               <h1>{poke.name}</h1>
-              <p>R$ {(id = Math.floor(Math.random() * 999))}</p>
+              <p>
+                {Intl.NumberFormat('pt-BR', {
+                  style: 'currency',
+                  currency: 'BRL',
+                }).format(poke.weight)}
+              </p>
               <Button text={`Add Carrinho`}></Button>
             </CardItem>
           ))}
 
           {/* Esse componente será renderizado quando a variavel pokedex for preenchida */}
           {pokedex.map((pokeItem) => (
-            <CardItem key={pokeItem.order}>
+            <CardItem key={pokeItem.id}>
               <img
-                src={`https://pokeres.bastionbot.org/images/pokemon/${pokeItem.id}.png`}
+                src={`https://pokeres.bastionbot.org/images/pokemon/${pokeItem.order}.png`}
                 alt={pokeItem.name}
               />
               <h1>{pokeItem.name}</h1>
-              <p>R$ {(pokeItem.weight = Math.floor(Math.random() * 999))}</p>
+              <p>
+                {Intl.NumberFormat('pt-BR', {
+                  style: 'currency',
+                  currency: 'BRL',
+                }).format(pokeItem.weight)}
+              </p>
               <Button text={`Add Carrinho`}></Button>
             </CardItem>
           ))}
