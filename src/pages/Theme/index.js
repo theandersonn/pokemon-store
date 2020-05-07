@@ -15,6 +15,7 @@ import api from '../../services/api';
 const Theme = () => {
   const { params } = useRouteMatch();
   const themeColor = params.theme;
+
   const [pokemon, setPokemon] = useState([]);
   const [search, setSearch] = useState([]);
   const [pokedex, setPokedex] = useState([]);
@@ -49,6 +50,7 @@ const Theme = () => {
     setSearch('');
   }
 
+  // Adiciona item ao carrinho
   return (
     <>
       {themeColor === 'agua' ? (
@@ -76,6 +78,7 @@ const Theme = () => {
           <FiSearch size={20} />
         </Form>
       </Header>
+
       <Content>
         <div>
           {/* Esse componente é renderizado ao carregar a página */}
@@ -92,7 +95,12 @@ const Theme = () => {
                   currency: 'BRL',
                 }).format(poke.weight)}
               </p>
-              <Button text={`Add Carrinho`}></Button>
+              <Button
+                id={poke.id}
+                name={poke.name}
+                price={poke.weight}
+                text={`Add Carrinho`}
+              ></Button>
             </CardItem>
           ))}
 
