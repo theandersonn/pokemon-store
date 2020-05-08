@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { CartList, CartPrice } from './styles';
+import { CartList, CartPrice, CartTitle } from './styles';
 
 import Button from '../Button';
 
@@ -9,6 +9,7 @@ import fogoGrowlithe from '../../assets/fogo-Growlithe.png';
 const Cart = () => {
   return (
     <>
+      <CartTitle>Minha Pokédex</CartTitle>
       <CartList>
         <li>
           <img src={fogoGrowlithe} alt="Growlithe" />

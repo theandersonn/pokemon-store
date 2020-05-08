@@ -1,16 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { useRouteMatch, Link } from 'react-router-dom';
-import { FiSearch } from 'react-icons/fi';
+import api from '../../services/api';
 
+import { FiSearch } from 'react-icons/fi';
+import { Header, Form, Content, ThemeColor } from './styles';
 import logoImg from '../../assets/logo.svg';
 
-import { Header, Form, Content, CardItem, ThemeColor } from './styles';
-
+import CardList from '../../components/CardList/';
 import Cart from '../../components/Cart/';
 import Footer from '../../components/Footer';
-import Button from '../../components/Button';
-
-import api from '../../services/api';
 
 const Category = () => {
   // parâmetro setado como categoria em Home/index
@@ -50,7 +48,6 @@ const Category = () => {
     setSearch('');
   }
 
-  // Adiciona item ao carrinho
   return (
     <>
       {params.id === '11' ? (
@@ -81,51 +78,11 @@ const Category = () => {
 
       <Content>
         <div>
-          {/* Esse componente é renderizado ao carregar a página */}
-          {pokemon.slice(0, 9).map((poke) => (
-            <CardItem key={poke.order}>
-              <img
-                src={`https://pokeres.bastionbot.org/images/pokemon/${poke.id}.png`}
-                alt={poke.name}
-              />
-              <h1>{poke.name}</h1>
-              <p>
-                {Intl.NumberFormat('pt-BR', {
-                  style: 'currency',
-                  currency: 'BRL',
-                }).format(poke.weight)}
-              </p>
-              <Button
-                id={poke.id}
-                name={poke.name}
-                price={poke.weight}
-                text={`Add Carrinho`}
-              ></Button>
-            </CardItem>
-          ))}
-
-          {/* Esse componente será renderizado quando a variavel pokedex for preenchida */}
-          {/* {pokedex.map((pokeItem) => (
-            <CardItem key={pokeItem.order}>
-              <img
-                src={`https://pokeres.bastionbot.org/images/pokemon/${pokeItem.id}.png`}
-                alt={pokeItem.name}
-              />
-              <h1>{pokeItem.name}</h1>
-              <p>
-                {Intl.NumberFormat('pt-BR', {
-                  style: 'currency',
-                  currency: 'BRL',
-                }).format(pokeItem.weight)}
-              </p>
-              <Button text={`Add Carrinho`}></Button>
-            </CardItem>
-          ))} */}
+          <CardList pokemon={pokemon} loading={!pokemon.length} />
         </div>
 
         <aside>
-          <h1>Carrinho</h1>
-          <Cart />
+          <Cart pokemon={pokemon} />
         </aside>
       </Content>
       <Footer />
