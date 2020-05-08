@@ -12,9 +12,9 @@ import Button from '../../components/Button';
 
 import api from '../../services/api';
 
-const Theme = () => {
+const Category = () => {
+  // parâmetro setado como categoria em Home/index
   const { params } = useRouteMatch();
-  const themeColor = params.theme;
 
   const [pokemon, setPokemon] = useState([]);
   const [search, setSearch] = useState([]);
@@ -27,9 +27,9 @@ const Theme = () => {
 
   // Faz a primeira requisição e pega as URLs
   async function getUrlPoke() {
-    const response = await api.get(`?limit=12`);
-    response.data.results.map((responseItem) => {
-      return getPoke(responseItem.url);
+    const response = await api.get(`type/${params.id}`);
+    response.data.pokemon.map((responseItem) => {
+      return getPoke(responseItem.pokemon.url);
     });
   }
 
@@ -53,11 +53,11 @@ const Theme = () => {
   // Adiciona item ao carrinho
   return (
     <>
-      {themeColor === 'agua' ? (
+      {params.id === '11' ? (
         <ThemeColor agua />
-      ) : themeColor === 'fogo' ? (
+      ) : params.id === '10' ? (
         <ThemeColor fogo />
-      ) : themeColor === 'dragao' ? (
+      ) : params.id === '16' ? (
         <ThemeColor dragao />
       ) : (
         <ThemeColor />
@@ -82,7 +82,7 @@ const Theme = () => {
       <Content>
         <div>
           {/* Esse componente é renderizado ao carregar a página */}
-          {pokemon.map((poke) => (
+          {pokemon.slice(0, 9).map((poke) => (
             <CardItem key={poke.order}>
               <img
                 src={`https://pokeres.bastionbot.org/images/pokemon/${poke.id}.png`}
@@ -105,7 +105,7 @@ const Theme = () => {
           ))}
 
           {/* Esse componente será renderizado quando a variavel pokedex for preenchida */}
-          {pokedex.map((pokeItem) => (
+          {/* {pokedex.map((pokeItem) => (
             <CardItem key={pokeItem.order}>
               <img
                 src={`https://pokeres.bastionbot.org/images/pokemon/${pokeItem.id}.png`}
@@ -120,7 +120,7 @@ const Theme = () => {
               </p>
               <Button text={`Add Carrinho`}></Button>
             </CardItem>
-          ))}
+          ))} */}
         </div>
 
         <aside>
@@ -133,4 +133,4 @@ const Theme = () => {
   );
 };
 
-export default Theme;
+export default Category;

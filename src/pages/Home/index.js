@@ -18,17 +18,17 @@ const Home = () => {
         <ThemeCard>
           <ThemeCardItem water>
             <img src={aguaPoliwhirl} alt="Poliwhirl" />
-            <Link to="tema/agua">Tema Água</Link>
+            <Link to="category/11">Tipo Água</Link>
           </ThemeCardItem>
 
           <ThemeCardItem fire>
             <img src={fogoGrowlithe} alt="Growlithe" />
-            <Link to="tema/fogo">Tema Fogo</Link>
+            <Link to="category/10">Tipo Fogo</Link>
           </ThemeCardItem>
 
           <ThemeCardItem dragon>
             <img src={dragaoDeino} alt="Deino" />
-            <Link to="tema/dragao">Tema Dragão</Link>
+            <Link to="category/16">Tipo Dragão</Link>
           </ThemeCardItem>
         </ThemeCard>
       </div>
