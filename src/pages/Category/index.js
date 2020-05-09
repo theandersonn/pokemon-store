@@ -54,7 +54,7 @@ const Category = ({ product }) => {
         <Search setPokemon={setPokemon} />
       </Header>
 
-      <WrapperContent pokemon={pokemon} />
+      <WrapperContent pokemon={pokemon} loading={!pokemon.length} />
       <Footer />
     </>
   );
