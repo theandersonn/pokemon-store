@@ -2,7 +2,7 @@
 
 A Pokémon Store é uma aplicação feita com ReactJS, sendo um catalogo com listagem de Pokémon a partir da [PokéAPI](https://pokeapi.co/), contém variação de 03 temas e busca com filtro por nome e recurso de montagem de Pokédex.
 
-<img alt="GoStack" src="https://raw.githubusercontent.com/theandersonn/pokemon-store/master/src/assets/pokemon-store-scene.png" />
+<img alt="Pokémon Store" src="https://raw.githubusercontent.com/theandersonn/pokemon-store/master/src/assets/pokemon-store-scene.png" />
 <br><br>
 
 **Implementações:**
@@ -11,9 +11,10 @@ A Pokémon Store é uma aplicação feita com ReactJS, sendo um catalogo com lis
 - Componentização de Elementos;
 - Navegação entre Rotas;
 - CSS com styled-components;
-- Variação de 03 temas;
-- Listagem de itens ao carregar a página;
+- Variação de 03 temas - água | fogo | dragão;
+- Listagem de Pokémon condicional ao tema escolhido;
 - Barra de busca para filtrar os Pokémon;
+- Montagem de Pokédex e totalização de valores;
 - Deploy da aplicação com netlify.
 
 **Design**

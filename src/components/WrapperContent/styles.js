@@ -38,10 +38,6 @@ export const CartTitle = styled.h1`
   font-size: 22px;
   text-transform: uppercase;
   margin-bottom: 8px;
-
-  @media (min-width: 768px) {
-    margin-bottom: 32px;
-  }
 `;
 
 export const CartList = styled.ul`
