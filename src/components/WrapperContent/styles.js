@@ -1,10 +1,5 @@
 import styled from 'styled-components';
 
-export const WrapperLoader = styled.div`
-  border: 1px dashed red;
-  text-align: center;
-`;
-
 export const Content = styled.section`
   display: flex;
   flex-wrap: wrap-reverse;
@@ -109,6 +104,7 @@ export const CartPrice = styled.div`
 
 export const CardItem = styled.article`
   width: 46%;
+  height: 340px;
   padding: 8px 16px;
   margin: 0 5px 10px 5px;
 

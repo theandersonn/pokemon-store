@@ -13,7 +13,7 @@ const Search = ({ setPokemon }) => {
 
     try {
       if (search.length > 0) {
-        const response = await api.get(`pokemon/${search}`);
+        const response = await api.get(`pokemon/${search.toLowerCase()}`);
         setPokemon([response.data]);
         setSearch('');
       }
