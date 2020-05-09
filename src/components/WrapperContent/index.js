@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+
 import { Content, CartList, CardItem, CartPrice, CartTitle } from './styles';
 
 import Button from '../Button';
@@ -19,7 +20,7 @@ const WrapperContent = ({ pokemon }) => {
     // loading = {!pokemon.length}
     <Content>
       <div>
-        {pokemon.slice(0, 9).map((poke) => (
+        {pokemon.slice(0, 12).map((poke) => (
           <CardItem key={poke.order}>
             <img
               src={`https://pokeres.bastionbot.org/images/pokemon/${poke.id}.png`}

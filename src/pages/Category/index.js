@@ -2,10 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { useRouteMatch, Link } from 'react-router-dom';
 import api from '../../services/api';
 
-import { FiSearch } from 'react-icons/fi';
-import { Header, Form, ThemeColor } from './styles';
+import { Header, ThemeColor } from './styles';
 import logoImg from '../../assets/logo.svg';
 
+import Search from '../../components/Search';
 import WrapperContent from '../../components/WrapperContent';
 import Footer from '../../components/Footer';
 
@@ -14,7 +14,6 @@ const Category = ({ product }) => {
   const { params } = useRouteMatch();
 
   const [pokemon, setPokemon] = useState([]);
-  const [search, setSearch] = useState([]);
 
   // listar pokemon ao carregar a página
   useEffect(() => {
@@ -35,22 +34,6 @@ const Category = ({ product }) => {
     setPokemon((prevPoke) => [...prevPoke, allContent.data]);
   }
 
-  // Montar Pokédex
-  async function handleAddPoke(event) {
-    event.preventDefault();
-
-    try {
-      if (search.length > 0) {
-        const response = await api.get(`pokemon/${search}`);
-        setPokemon([response.data]);
-        setSearch('');
-      }
-    } catch (err) {
-      alert(`${search} não consta na lista.`);
-      setSearch('');
-    }
-  }
-
   return (
     <>
       {params.id === '11' ? (
@@ -68,15 +51,7 @@ const Category = ({ product }) => {
           <img src={logoImg} alt="Pokemon Store" />
         </Link>
 
-        <Form onSubmit={handleAddPoke}>
-          <input
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-            type="search"
-            placeholder="Monte a sua Pokédex"
-          />
-          <FiSearch size={20} />
-        </Form>
+        <Search setPokemon={setPokemon} />
       </Header>
 
       <WrapperContent pokemon={pokemon} />
