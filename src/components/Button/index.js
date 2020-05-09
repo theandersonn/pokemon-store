@@ -1,21 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-import { ButtonElement } from './styles';
+import { Btn } from './styles';
 
-const Button = ({ text, id, name, price }) => {
-  const [product, setProduct] = useState([]);
-
-  function addToCart() {
-    const newProduct = [id, name, price];
-    setProduct([...product, newProduct]);
-    console.log(product);
-  }
-
-  return (
-    <ButtonElement onClick={() => addToCart(id, name, price)}>
-      {text}
-    </ButtonElement>
-  );
+const Button = ({ text }) => {
+  return <Btn>{text}</Btn>;
 };
 
 export default Button;

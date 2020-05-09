@@ -73,37 +73,3 @@ export const Form = styled.form`
     color: #000;
   }
 `;
-
-export const Content = styled.section`
-  display: flex;
-  flex-wrap: wrap-reverse;
-
-  @media (min-width: 768px) {
-    flex-wrap: wrap;
-  }
-
-  div {
-    display: flex;
-    flex-wrap: wrap;
-    flex: 1;
-  }
-
-  aside {
-    width: 100%;
-    padding: 16px;
-    margin-bottom: 15px;
-
-    background-color: #fff;
-    border: 2px solid #000;
-    border-radius: 4px;
-
-    @media (min-width: 768px) {
-      align-self: start;
-      width: 270px;
-    }
-
-    @media (min-width: 1200px) {
-      margin-left: 30px;
-    }
-  }
-`;

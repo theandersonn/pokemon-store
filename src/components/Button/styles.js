@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { shade } from 'polished';
 
-export const ButtonElement = styled.button`
+export const Btn = styled.button`
   max-width: 270px;
   width: 100%;
   line-height: 24px;

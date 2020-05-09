@@ -3,20 +3,18 @@ import { useRouteMatch, Link } from 'react-router-dom';
 import api from '../../services/api';
 
 import { FiSearch } from 'react-icons/fi';
-import { Header, Form, Content, ThemeColor } from './styles';
+import { Header, Form, ThemeColor } from './styles';
 import logoImg from '../../assets/logo.svg';
 
-import CardList from '../../components/CardList/';
-import Cart from '../../components/Cart/';
+import WrapperContent from '../../components/WrapperContent';
 import Footer from '../../components/Footer';
 
-const Category = () => {
+const Category = ({ product }) => {
   // parâmetro setado como categoria em Home/index
   const { params } = useRouteMatch();
 
   const [pokemon, setPokemon] = useState([]);
   const [search, setSearch] = useState([]);
-  const [pokedex, setPokedex] = useState([]);
 
   // listar pokemon ao carregar a página
   useEffect(() => {
@@ -41,11 +39,16 @@ const Category = () => {
   async function handleAddPoke(event) {
     event.preventDefault();
 
-    const response = await api.get(`${search}`);
-    const newItemPoke = response.data;
-    setPokedex([...pokedex, newItemPoke]);
-    setPokemon([]);
-    setSearch('');
+    try {
+      if (search.length > 0) {
+        const response = await api.get(`pokemon/${search}`);
+        setPokemon([response.data]);
+        setSearch('');
+      }
+    } catch (err) {
+      alert(`${search} não consta na lista.`);
+      setSearch('');
+    }
   }
 
   return (
@@ -76,15 +79,7 @@ const Category = () => {
         </Form>
       </Header>
 
-      <Content>
-        <div>
-          <CardList pokemon={pokemon} loading={!pokemon.length} />
-        </div>
-
-        <aside>
-          <Cart pokemon={pokemon} />
-        </aside>
-      </Content>
+      <WrapperContent pokemon={pokemon} />
       <Footer />
     </>
   );
