@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { Content, CartList, CardItem, CartPrice, CartTitle } from './styles';
 
+import Button from '../Button';
+
 const WrapperContent = ({ pokemon }) => {
-  // Carrinho
   const [product, setProduct] = useState([]);
 
   function addToCart(id, name, price) {
@@ -31,14 +32,12 @@ const WrapperContent = ({ pokemon }) => {
                 currency: 'BRL',
               }).format(poke.weight)}
             </p>
-            {/* <Button
-
-            text={`Add Carrinho`}
-          ></Button> */}
-
-            <button onClick={() => addToCart(poke.id, poke.name, poke.weight)}>
-              Add Carrinho
-            </button>
+            {
+              <Button
+                onClick={() => addToCart(poke.id, poke.name, poke.weight)}
+                text={`Add Carrinho`}
+              ></Button>
+            }
           </CardItem>
         ))}
       </div>
@@ -60,11 +59,15 @@ const WrapperContent = ({ pokemon }) => {
 
         <CartPrice>
           <h2>total</h2>
-          <p>R$ 0</p>
+          <p>
+            R${' '}
+            {product.reduce((prev, curr) => {
+              return prev + curr.price;
+            }, 0)}
+          </p>
         </CartPrice>
 
-        {/* <Button text={`Finalizar`} /> */}
-        <button>Finalizar</button>
+        <Button text={`Finalizar`} />
       </aside>
     </Content>
   );
